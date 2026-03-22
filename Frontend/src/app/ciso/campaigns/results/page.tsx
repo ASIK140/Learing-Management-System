@@ -65,7 +65,7 @@ export default function CampaignResultsRouter() {
     const exportData = (format: string) => {
         if (!selectedId) return;
         const token = localStorage.getItem('token');
-        window.open(`http://localhost:5000/api/ciso/phishing/${selectedId}/export/${format.toLowerCase()}?token=${token}`, '_blank');
+        window.open(`${process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000/api'}/ciso/phishing/${selectedId}/export/${format.toLowerCase()}?token=${token}`, '_blank');
     };
 
     if (loading && !campaign) return <div className="p-10 text-white text-center">Loading Analytics...</div>;

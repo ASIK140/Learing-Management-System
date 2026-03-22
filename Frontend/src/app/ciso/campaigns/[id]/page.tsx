@@ -40,7 +40,7 @@ export default function CampaignResults() {
 
     const exportData = (format: string) => {
         const token = localStorage.getItem('token');
-        window.open(`http://localhost:5000/api/ciso/phishing/${id}/export/${format.toLowerCase()}?token=${token}`, '_blank');
+        window.open(`${process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000/api'}/ciso/phishing/${id}/export/${format.toLowerCase()}?token=${token}`, '_blank');
     };
 
     if (loading) return <div className="p-10 text-white text-center">Loading Analytics...</div>;
